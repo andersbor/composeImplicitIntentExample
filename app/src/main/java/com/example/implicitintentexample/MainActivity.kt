@@ -47,22 +47,23 @@ fun ImplicitIntents(modifier: Modifier = Modifier) {
             onClick = {
                 val uri = "https://anbo-easj.dk/"
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
-                startActivity(context, intent, null)
+                context.startActivity(intent)
+                //startActivity(context, intent, null)
             }) { Text(text = "Open browser") }
         Button(modifier = Modifier.fillMaxWidth(),
             onClick = {
                 val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:+45123456"))
-                startActivity(context, intent, null)
+                context.startActivity(intent)
             }) { Text(text = "Open phone app") }
         Button(modifier = Modifier.fillMaxWidth(),
             onClick = {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("geo:55.6305952,12.0784041"))
-                startActivity(context, intent, null)
+                context.startActivity(intent)
             }) { Text(text = "Open map") }
         Button(modifier = Modifier.fillMaxWidth(),
             onClick = {
                 val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                startActivity(context, intent, null)
+                context.startActivity(intent)
             }) { Text(text = "Open camera app") }
         Button(modifier = Modifier.fillMaxWidth(),
             onClick = {
@@ -70,13 +71,13 @@ fun ImplicitIntents(modifier: Modifier = Modifier) {
                 emailIntent.data = Uri.parse("mailto:")
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Hello World!")
                 emailIntent.putExtra(Intent.EXTRA_TEXT, "Hi! I am sending you a test email.")
-                startActivity(context, emailIntent, null)
+                context.startActivity(emailIntent)
             }) { Text("Open email app") }
         Button(modifier = Modifier.fillMaxWidth(),
             onClick = {
                 val intent = Intent(Intent.ACTION_VIEW)
                 // Nothing else specified!
-                startActivity(context, intent, null)
+                context.startActivity(intent)
             }) { Text(text = "Generic intent") }
     }
 }
